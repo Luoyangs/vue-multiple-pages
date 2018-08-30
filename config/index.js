@@ -7,6 +7,7 @@ module.exports = {
     proxyTable: {}
   },
   build: {
-
+    assetsPublicPath: '/',
+    assetsSubDirectory: 'public'
   }
 }

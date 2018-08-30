@@ -1,5 +1,6 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const util = require('./util')
 
 module.exports = {
@@ -47,4 +48,22 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin()
   ]
+}
+
+const templates = util.getEntries('./client/views/**/index.html')
+for (const name in templates) {
+  // 配置生成的html文件，定义路径
+  const config = {
+    filename: name + '.html',
+    template: templates[name],
+    inject: true,
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      removeAttributeQuotes: true
+    },
+    excludeChunks: Object.keys(templates).filter(item => item !== name)
+  }
+
+  module.exports.plugins.push(new HtmlWebpackPlugin(config))
 }
