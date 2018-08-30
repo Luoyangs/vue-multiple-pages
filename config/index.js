@@ -1,7 +1,7 @@
 module.exports = {
   dev: {
     port: 8000,
-    autoOpenBrowser: true,
+    autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {}

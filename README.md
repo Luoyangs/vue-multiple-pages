@@ -74,13 +74,14 @@ npm i nodemon -D
     ".git",
     "README.md",
     "node_modules/**/node_modules",
-    "dist"
+    "dist",
+    "client"
   ],
   "verbose": true,
   "env": {
     "NODE_ENV": "development"
   },
-  "ext": "js json html"  // 监听的文件后缀名
+  "ext": "js json"  // 监听的文件后缀名
 }
 ```
 在package.json里面修改脚本
